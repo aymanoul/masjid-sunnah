@@ -2,19 +2,20 @@ import type { Metadata, Viewport } from "next";
 import "@fontsource-variable/montserrat/wght.css";
 import "@fontsource/prata/400.css";
 import "@fontsource/amiri/400.css";
-import "@fontsource/amiri/700.css";
+import "./fonts.generated.css"; // kleine Teilmengen, nach den Fontsource-Dateien, damit sie Vorrang haben
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { site } from "@/content/site";
-import { asset } from "@/lib/base";
+import { asset, siteUrl } from "@/lib/base";
+import { ogImage } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(site.url),
+  metadataBase: new URL(siteUrl),
   title: { default: "Masjid As-Sunnah Ratingen", template: "%s · Masjid As-Sunnah Ratingen" },
   description: "Masjid As-Sunnah in Ratingen: Gebetszeiten, Unterricht und Neubau-Projekt.",
   icons: {
     icon: [
+      { url: asset("/icons/favicon.ico"), sizes: "any" },
       { url: asset("/icons/favicon-32.png"), sizes: "32x32", type: "image/png" },
       { url: asset("/icons/favicon-16.png"), sizes: "16x16", type: "image/png" },
     ],
@@ -22,9 +23,9 @@ export const metadata: Metadata = {
   },
   applicationName: "Masjid As-Sunnah",
   appleWebApp: { capable: true, title: "Masjid As-Sunnah", statusBarStyle: "black-translucent" },
-  // Vorschau-Builds (GitHub Pages) werden nicht von Suchmaschinen indexiert.
+  // Standardwerte für Seiten ohne eigene Metadaten (404, Styleguide). Alle anderen setzen pageMeta().
+  openGraph: { type: "website", locale: "de_DE", siteName: "Masjid As-Sunnah Ratingen", images: [ogImage] },
   robots: process.env.NEXT_PUBLIC_NOINDEX ? { index: false, follow: false } : undefined,
-  // TODO (Phase 6): Open-Graph-Bild /og-image.png pro Seite, Schema.org Mosque
 };
 
 export const viewport: Viewport = { themeColor: "#212242", width: "device-width", initialScale: 1 };

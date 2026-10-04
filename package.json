@@ -6,9 +6,12 @@
     "dev": "next dev",
     "build": "next build",
     "lint": "tsc --noEmit",
-    "prebuild": "node scripts/mawaqit.mjs",
+    "prebuild": "node scripts/images.mjs && node scripts/mawaqit.mjs",
     "mawaqit": "node scripts/mawaqit.mjs",
-    "test": "node scripts/mawaqit.test.mjs"
+    "test": "node scripts/mawaqit.test.mjs",
+    "check": "node scripts/check.mjs",
+    "predev": "node scripts/images.mjs",
+    "images": "node scripts/images.mjs"
   },
   "dependencies": {
     "@fontsource-variable/montserrat": "^5.3.0",
@@ -21,6 +24,7 @@
     "react-dom": "^19.3.0"
   },
   "devDependencies": {
+    "@capsizecss/metrics": "^4.3.0",
     "@tailwindcss/postcss": "^4.3.3",
     "@types/node": "^26.6.4",
     "@types/react": "^19.3.0",

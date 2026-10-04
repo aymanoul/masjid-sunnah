@@ -1,14 +1,12 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import { BankCard } from "@/components/BankCard";
 import { Watermark } from "@/components/Logo";
 import { Reveal } from "@/components/Reveal";
 import { Button, Heading, Label, Section, TodoChip } from "@/components/ui";
 import { site } from "@/content/site";
 
-export const metadata: Metadata = {
-  title: "Spenden",
-  description: "Spenden für den Neubau und die Gemeinde der Masjid As-Sunnah Ratingen: per Überweisung, PayPal oder Dauerauftrag.",
-};
+export const metadata: Metadata = pageMeta({ path: "/spenden/", title: "Spenden", description: "Spenden für den Neubau und die Gemeinde der Masjid As-Sunnah Ratingen: per Überweisung, PayPal oder Dauerauftrag." });
 
 const schritte = [
   "Öffne dein Online-Banking oder die Banking-App und wähle „Dauerauftrag anlegen“.",

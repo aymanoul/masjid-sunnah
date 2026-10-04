@@ -1,16 +1,14 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import { MessageCircle } from "lucide-react";
 import { ContactRows } from "@/components/ContactRows";
 import { Watermark } from "@/components/Logo";
 import { Reveal } from "@/components/Reveal";
-import { StandortKarte } from "@/components/StandortKarte";
+import { StandortKarteLazy } from "@/components/StandortKarteLazy";
 import { Button, Heading, Label } from "@/components/ui";
 import { site } from "@/content/site";
 
-export const metadata: Metadata = {
-  title: "Kontakt",
-  description: "Kontakt zur Masjid As-Sunnah Ratingen: Adresse, Telefon, WhatsApp und E-Mail.",
-};
+export const metadata: Metadata = pageMeta({ path: "/kontakt/", title: "Kontakt", description: "Kontakt zur Masjid As-Sunnah Ratingen: Adresse, Telefon, WhatsApp und E-Mail." });
 
 export default function Kontakt() {
   return (
@@ -32,7 +30,7 @@ export default function Kontakt() {
         <Reveal className="flex h-full max-w-md flex-col justify-center lg:mr-auto">
           <Label>Standort</Label>
           <Heading className="mt-6" as="h2" size="md" first="So findest du" accent="uns" />
-          <div className="mt-8"><StandortKarte /></div>
+          <div className="mt-8"><StandortKarteLazy /></div>
         </Reveal>
       </div>
     </section>

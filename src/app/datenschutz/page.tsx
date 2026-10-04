@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import { Label, Section } from "@/components/ui";
 import { datenschutz } from "@/content/datenschutz";
 
-export const metadata: Metadata = {
-  title: "Datenschutzerklärung",
-  description: "Datenschutzerklärung der Masjid As-Sunnah Ratingen.",
-};
+export const metadata: Metadata = pageMeta({ path: "/datenschutz/", title: "Datenschutzerklärung", description: "Datenschutzerklärung der Masjid As-Sunnah Ratingen." });
 
 export default function Page() {
   return (

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import { MessageCircle } from "lucide-react";
 import { Button, Card, Heading, Label, Section, TodoChip } from "@/components/ui";
 import { Watermark } from "@/components/Logo";
@@ -6,10 +7,7 @@ import { Reveal } from "@/components/Reveal";
 import { arabischStufen, quran } from "@/content/unterricht";
 import { site } from "@/content/site";
 
-export const metadata: Metadata = {
-  title: "Unterricht",
-  description: "Arabisch-Unterricht in drei Stufen und Qur’an-Unterricht (Hifz) jeden Sonntag in der Masjid As-Sunnah in Ratingen.",
-};
+export const metadata: Metadata = pageMeta({ path: "/unterricht/", title: "Unterricht", description: "Arabisch-Unterricht in drei Stufen und Qur’an-Unterricht (Hifz) jeden Sonntag in der Masjid As-Sunnah in Ratingen." });
 
 const wa = (text: string) => `${site.whatsapp}?text=${encodeURIComponent(text)}`;
 
@@ -39,20 +37,22 @@ export default function Unterricht() {
         </Reveal>
         <ol className="mt-14 border-b border-navy/15">
           {arabischStufen.map((s, i) => (
-            <Reveal key={s.nr} delay={i * 80}>
-              <li className="grid gap-4 border-t border-navy/15 py-10 sm:grid-cols-12 sm:gap-8">
-                <p aria-hidden className="text-7xl font-black leading-none text-gold sm:col-span-2 sm:text-8xl">{s.nr}</p>
-                <div className="sm:col-span-4">
-                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold-ink">Stufe {s.nr}</p>
-                  <h3 className="mt-2 text-2xl">{s.titel}</h3>
+            <li key={s.nr} className="border-t border-navy/15">
+              <Reveal delay={i * 80}>
+                <div className="grid gap-4 py-10 sm:grid-cols-12 sm:gap-8">
+                  <p aria-hidden className="text-7xl font-black leading-none text-gold sm:col-span-2 sm:text-8xl">{s.nr}</p>
+                  <div className="sm:col-span-4">
+                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold-ink">Stufe {s.nr}</p>
+                    <h3 className="mt-2 text-2xl">{s.titel}</h3>
+                  </div>
+                  <ul className="space-y-2 sm:col-span-6">
+                    {s.punkte.map((p) => (
+                      <li key={p} className="flex gap-3"><span aria-hidden className="mt-3 h-px w-4 shrink-0 bg-gold" />{p}</li>
+                    ))}
+                  </ul>
                 </div>
-                <ul className="space-y-2 sm:col-span-6">
-                  {s.punkte.map((p) => (
-                    <li key={p} className="flex gap-3"><span aria-hidden className="mt-3 h-px w-4 shrink-0 bg-gold" />{p}</li>
-                  ))}
-                </ul>
-              </li>
-            </Reveal>
+              </Reveal>
+            </li>
           ))}
         </ol>
       </Section>

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import { ArrowUpRight } from "lucide-react";
 import { Button, Heading, Label, Section } from "@/components/ui";
 import { Photo } from "@/components/Photo";
@@ -6,10 +7,7 @@ import { PrayerMonth } from "@/components/PrayerMonth";
 import { photos } from "@/content/photos";
 import { berlinNow } from "@/lib/prayer";
 
-export const metadata: Metadata = {
-  title: "Gebetszeiten",
-  description: "Gebetszeiten der Masjid As-Sunnah in Ratingen: Monatsplan mit Beginn und Iqāma, Jumuʻa und Hijri-Datum.",
-};
+export const metadata: Metadata = pageMeta({ path: "/gebetszeiten/", title: "Gebetszeiten", description: "Gebetszeiten der Masjid As-Sunnah in Ratingen: Monatsplan mit Beginn und Iqāma, Jumuʻa und Hijri-Datum." });
 
 const MAWAQIT = "https://mawaqit.net/de/msjd-lsn-ratingen-40878-germany";
 

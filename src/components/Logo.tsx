@@ -53,6 +53,8 @@ export function Watermark({
       src={asset(`/brand/kalligrafie-${tone === "navy" ? "navy" : "weiss"}.svg`)}
       alt=""
       aria-hidden
+      loading="lazy"
+      decoding="async"
       className={`pointer-events-none absolute select-none ${className}`}
       style={{ opacity }}
     />

@@ -15,8 +15,10 @@ export function BankCard({ id }: { id?: string }) {
         </div>
         <div>
           <dt className="text-xs font-semibold uppercase tracking-[0.18em] text-white/70">IBAN</dt>
-          <dd className="mt-1 break-words text-xl font-bold tabular-nums tracking-wide sm:text-2xl">{d.iban}</dd>
-          <div className="mt-3"><CopyButton value={d.iban.replace(/\s/g, "")} label="IBAN kopieren" /></div>
+          <dd className="mt-1">
+            <span className="block break-words text-xl font-bold tabular-nums tracking-wide sm:text-2xl">{d.iban}</span>
+            <span className="mt-3 inline-block"><CopyButton value={d.iban.replace(/\s/g, "")} label="IBAN kopieren" /></span>
+          </dd>
         </div>
         <div>
           <dt className="text-xs font-semibold uppercase tracking-[0.18em] text-white/70">Verwendungszweck</dt>

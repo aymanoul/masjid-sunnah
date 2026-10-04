@@ -5,9 +5,11 @@ import { Arches, Button, Card, Heading, IconBadge, Label, Section } from "@/comp
 import { Watermark } from "@/components/Logo";
 import { Photo } from "@/components/Photo";
 import { photos } from "@/content/photos";
+import { Hero } from "@/components/Hero";
 import { PrayerCard } from "@/components/PrayerCard";
 import { JumuaTime } from "@/components/JumuaTime";
 import { Reveal } from "@/components/Reveal";
+import { JsonLd } from "@/components/JsonLd";
 import { StandortSection } from "@/components/StandortSection";
 import { InstagramIcon, TiktokIcon, YoutubeIcon } from "@/components/icons";
 import { berlinNow } from "@/lib/prayer";
@@ -28,31 +30,12 @@ export default function Home() {
 
   return (
     <>
+      <JsonLd />
       {/* 1 · Hero */}
-      <header className="on-dark relative isolate flex min-h-[100svh] items-end overflow-hidden bg-navy-900 text-white">
-        <div className="absolute inset-0 -z-10">
-          <Photo todo="Hero: Gebetsraum oder Gemeinde (Querformat)" chip={false} />
-          <div className="absolute inset-0 bg-navy-900/90" />
-        </div>
-        <Arches className="absolute -bottom-px right-0 -z-10 hidden w-[34rem] opacity-40 lg:block" />
-        <div className="mx-auto w-full max-w-6xl px-5 pb-16 pt-36 sm:px-8 sm:pb-24">
-          <p className="mb-6 text-xl text-gold-light sm:text-2xl"><span lang="ar" dir="rtl">بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ</span></p>
-          <h1 className="max-w-4xl text-[2.5rem] font-black leading-[1.05] tracking-tight text-white sm:text-6xl lg:text-7xl">
-            Ein Ort des <span className="text-gold">Gebets</span>, des <span className="text-gold">Wissens</span> und der <span className="text-gold">Gemeinschaft</span>
-          </h1>
-          <p className="mt-8 max-w-xl text-lg text-white/85">
-            Die Masjid As-Sunnah in Ratingen orientiert sich an Qur’an und Sunnah und steht allen Geschwistern offen.
-          </p>
-          <div className="mt-10 flex flex-wrap gap-4">
-            <Button href="/gebetszeiten/" size="lg">Gebetszeiten</Button>
-            <Button href="/neubau/" size="lg" variant="outline-light">Projekt Neubau unterstützen</Button>
-          </div>
-          <p className="mt-10 text-xs font-semibold text-white/60">TODO: echtes Foto – Hero (Querformat), ersetzt diese Fläche</p>
-        </div>
-      </header>
+      <Hero />
 
       {/* 2 · Gebetszeiten heute */}
-      <Section id="gebetszeiten" tone="navy">
+      <Section id="gebetszeiten" tone="navy" className="bg-[linear-gradient(to_bottom,var(--color-hero-ink)_0,var(--color-navy)_200px)]">
         <Watermark tone="white" opacity={0.04} className="-left-32 -top-20 w-[36rem]" />
         <div className="relative grid gap-12 lg:grid-cols-12 lg:gap-16">
           <Reveal className="lg:col-span-5">

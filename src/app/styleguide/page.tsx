@@ -4,7 +4,7 @@ import { Logo, Watermark } from "@/components/Logo";
 import { Arches, Button, Card, Heading, IconBadge, Label, Section } from "@/components/ui";
 import { Reveal } from "@/components/Reveal";
 
-export const metadata: Metadata = { title: "Styleguide", robots: { index: false, follow: false } };
+export const metadata: Metadata = { title: "Styleguide", robots: { index: false, follow: false } }; // intern, nie indexieren
 
 const colors = [
   { name: "navy", hex: "#212242", use: "Headlines, dunkle Flächen, Footer, Buttons", dark: true },

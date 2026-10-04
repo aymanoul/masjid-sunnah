@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import { Label, Section } from "@/components/ui";
 import { impressum } from "@/content/impressum";
 
-export const metadata: Metadata = {
-  title: "Impressum",
-  description: "Impressum der Masjid As-Sunnah Ratingen, Marokkanischer Kultur Verein Ratingen e.V.",
-};
+export const metadata: Metadata = pageMeta({ path: "/impressum/", title: "Impressum", description: "Impressum der Masjid As-Sunnah Ratingen, Marokkanischer Kultur Verein Ratingen e.V." });
 
 export default function Page() {
   return (

@@ -15,6 +15,7 @@ export function Photo({
   className = "",
   chip = true,
   chipText,
+  plain = false,
 }: {
   src?: string;
   srcSet?: string;
@@ -26,6 +27,7 @@ export function Photo({
   className?: string;
   chip?: boolean;
   chipText?: string;
+  plain?: boolean; // Platzhalter ohne Kalligrafie (z. B. unter einem dunklen Overlay)
 }) {
   if (src) {
     // eslint-disable-next-line @next/next/no-img-element
@@ -33,7 +35,7 @@ export function Photo({
   }
   return (
     <div className={`relative h-full w-full overflow-hidden bg-stone ${className}`} role="img" aria-label={`Platzhalter: ${todo}`}>
-      <Watermark tone="navy" opacity={0.06} className="left-1/2 top-1/2 w-[70%] max-w-[28rem] -translate-x-1/2 -translate-y-1/2" />
+      {plain ? null : <Watermark tone="navy" opacity={0.06} className="left-1/2 top-1/2 w-[70%] max-w-[28rem] -translate-x-1/2 -translate-y-1/2" />}
       {chip ? (
         <span className="absolute bottom-3 left-3 rounded-sm bg-white/90 px-3 py-1.5 text-[0.7rem] font-semibold leading-tight text-gold-ink">
           {chipText ?? `TODO: echtes Foto – ${todo}`}

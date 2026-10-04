@@ -56,7 +56,7 @@ export function Heading({
 type ButtonProps = {
   href: string;
   children: ReactNode;
-  variant?: "gold" | "navy" | "outline-light" | "outline-dark";
+  variant?: keyof typeof variants;
   size?: "md" | "lg";
   external?: boolean;
   className?: string;
@@ -68,6 +68,9 @@ const variants = {
   navy: "bg-navy text-white hover:bg-navy-900",
   "outline-light": "border-2 border-white/70 text-white hover:bg-white hover:text-navy",
   "outline-dark": "border-2 border-navy text-navy hover:bg-navy hover:text-white",
+  // Hero: Großbuchstaben, weiter Buchstabenabstand, eckig mit 4 px Radius
+  hero: "bg-gold text-navy uppercase tracking-[0.08em] hover:bg-gold-light",
+  "hero-outline": "border border-white/45 text-white uppercase tracking-[0.08em] hover:bg-white/[0.08]",
 } as const;
 
 export function Button({ href, children, variant = "gold", size = "md", external, className = "", icon }: ButtonProps) {

@@ -60,7 +60,7 @@ export function Header() {
             </Button>
             <button
               type="button"
-              className="inline-flex size-12 items-center justify-center text-white lg:hidden"
+              className="inline-flex size-12 items-center justify-center rounded-md border border-white/35 text-white lg:hidden"
               aria-label={open ? "Menü schließen" : "Menü öffnen"}
               aria-expanded={open}
               aria-controls="mobile-menu"

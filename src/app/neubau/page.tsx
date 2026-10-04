@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import { Building2, Landmark, School, Users } from "lucide-react";
 import { BankCard } from "@/components/BankCard";
 import { Photo } from "@/components/Photo";
@@ -8,10 +9,7 @@ import { Button, Heading, IconBadge, Label, Section } from "@/components/ui";
 import { bereiche, hadith } from "@/content/neubau";
 import { site } from "@/content/site";
 
-export const metadata: Metadata = {
-  title: "Projekt Neubau",
-  description: "Neubau einer Moschee in Ratingen: Gebetsräume, Bildung, Verwaltung und Gemeinschaft. So kannst du das Projekt unterstützen.",
-};
+export const metadata: Metadata = pageMeta({ path: "/neubau/", title: "Projekt Neubau", description: "Neubau einer Moschee in Ratingen: Gebetsräume, Bildung, Verwaltung und Gemeinschaft. So kannst du das Projekt unterstützen." });
 
 const icons = { gebet: Landmark, bildung: School, verwaltung: Building2, gemeinschaft: Users } as const;
 
