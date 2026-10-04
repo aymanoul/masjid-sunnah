@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, BookOpen, Clock, GraduationCap, HandHeart, Landmark, Mail, MapPin, MessageCircle, Phone, Users, DoorOpen, Building2, School } from "lucide-react";
+import { ArrowRight, BookOpen, Clock, GraduationCap, HandHeart, Landmark, MessageCircle, Users, DoorOpen, Building2, School } from "lucide-react";
 import { Arches, Button, Card, Heading, IconBadge, Label, Section } from "@/components/ui";
 import { Watermark } from "@/components/Logo";
 import { Photo } from "@/components/Photo";
@@ -8,7 +8,7 @@ import { photos } from "@/content/photos";
 import { PrayerCard } from "@/components/PrayerCard";
 import { JumuaTime } from "@/components/JumuaTime";
 import { Reveal } from "@/components/Reveal";
-import { Email } from "@/components/Email";
+import { StandortSection } from "@/components/StandortSection";
 import { InstagramIcon, TiktokIcon, YoutubeIcon } from "@/components/icons";
 import { berlinNow } from "@/lib/prayer";
 import { events } from "@/content/events";
@@ -20,7 +20,6 @@ export const metadata: Metadata = {
 };
 
 const MAWAQIT = "https://mawaqit.net/de/msjd-lsn-ratingen-40878-germany";
-const OSM = `https://www.openstreetmap.org/search?query=${encodeURIComponent("Am Westbahnhof 31, 40878 Ratingen")}`;
 
 export default function Home() {
   const buildDate = berlinNow().date;
@@ -242,26 +241,8 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* 8 · Anfahrt */}
-      <Section id="anfahrt" tone="paper">
-        <div className="grid items-stretch gap-12 lg:grid-cols-12 lg:gap-16">
-          <Reveal className="lg:col-span-7">
-            {/* TODO: Karte (Klick-zum-Laden) erst nach Klärung des Datenschutzes einbauen. Bis dahin Platzhalter. */}
-            <div className="aspect-[4/3] w-full min-h-64 lg:aspect-auto lg:h-full"><Photo todo="Karte" chipText="TODO: Karte (Klick-zum-Laden), erst nach Klärung des Datenschutzes" /></div>
-          </Reveal>
-          <Reveal className="lg:col-span-5" delay={120}>
-            <Label>Anfahrt</Label>
-            <Heading className="mt-6" first="So finden Sie" accent="uns" />
-            <address className="mt-8 space-y-4 not-italic">
-              <p className="flex gap-3"><MapPin className="mt-1 size-5 shrink-0 stroke-[1.5] text-gold-ink" aria-hidden /><span><strong className="text-navy">Masjid As-Sunnah</strong><br />{site.address.street}<br />{site.address.zip} {site.address.city}</span></p>
-              <p className="flex gap-3"><Phone className="size-5 shrink-0 stroke-[1.5] text-gold-ink" aria-hidden /><a href={site.phone.href} className="hover:underline">{site.phone.display}</a></p>
-              <p className="flex gap-3"><Mail className="size-5 shrink-0 stroke-[1.5] text-gold-ink" aria-hidden /><Email className="" /></p>
-            </address>
-            <Button href={OSM} variant="outline-dark" className="mt-8">Route in OpenStreetMap öffnen</Button>
-            <p className="mt-3 text-xs text-ink/70">Der Link öffnet openstreetmap.org in einem neuen Tab. Vorher werden keine Daten übertragen.</p>
-          </Reveal>
-        </div>
-      </Section>
+      {/* 8 · Standort (Karte ohne Embed) */}
+      <StandortSection />
     </>
   );
 }
