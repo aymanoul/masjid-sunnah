@@ -12,6 +12,7 @@ import { StandortSection } from "@/components/StandortSection";
 import { InstagramIcon, TiktokIcon, YoutubeIcon } from "@/components/icons";
 import { berlinNow } from "@/lib/prayer";
 import { events } from "@/content/events";
+import { bereiche, hadith } from "@/content/neubau";
 import { site } from "@/content/site";
 
 export const metadata: Metadata = {
@@ -100,7 +101,7 @@ export default function Home() {
       <Section id="angebot" tone="stone">
         <Reveal>
           <Label>Angebot</Label>
-          <Heading className="mt-6 max-w-2xl" first="Das bieten wir" accent="Ihnen" />
+          <Heading className="mt-6 max-w-2xl" first="Das bieten wir" accent="dir" />
         </Reveal>
         <div className="mt-14 grid gap-6 lg:grid-cols-12">
           <Reveal className="lg:col-span-5">
@@ -156,8 +157,8 @@ export default function Home() {
               Wir planen den Neubau einer Moschee in Ratingen: ein Gemeindezentrum mit Räumen für Gebet, Bildung, Verwaltung und Gemeinschaft.
             </p>
             <blockquote className="mt-10 border-l-2 border-gold pl-6 font-serif text-2xl leading-snug text-navy">
-              „Wer für Allah eine Moschee baut, dem baut Allah ein Haus im Paradies.“
-              <footer className="mt-3 font-sans text-sm text-ink/80">Prophet Mohammed ﷺ · Sahih Muslim</footer>
+              „{hadith.text}“
+              <footer className="mt-3 font-sans text-sm text-ink/80">{hadith.quelle}</footer>
             </blockquote>
             <div className="mt-10 flex flex-wrap gap-4">
               <Button href="/spenden/" size="lg">Jetzt unterstützen</Button>
@@ -167,10 +168,10 @@ export default function Home() {
           <Reveal className="lg:col-span-6" delay={120}>
             <dl className="grid gap-x-10 gap-y-0 sm:grid-cols-2">
               {[
-                { Icon: Landmark, t: "Gebetsräume", d: "Helle Gebetsräume für Männer und Frauen, für die täglichen Gebete, Jumuʻa und Festgebete." },
-                { Icon: School, t: "Bildung", d: "Klassenräume, Bibliothek und Seminarräume für Qur’an-Unterricht, Bildung und Vorträge." },
-                { Icon: Building2, t: "Verwaltung", d: "Büros und Verwaltungsräume, um die Zukunft der Gemeinde verlässlich zu gestalten." },
-                { Icon: Users, t: "Gemeinschaft", d: "Eine Mehrzweckhalle, Cafeteria und Küche für Feste, Iftar-Abende und Begegnung." },
+                { Icon: Landmark, t: bereiche[0].titel, d: bereiche[0].kurz },
+                { Icon: School, t: bereiche[1].titel, d: bereiche[1].kurz },
+                { Icon: Building2, t: bereiche[2].titel, d: bereiche[2].kurz },
+                { Icon: Users, t: bereiche[3].titel, d: bereiche[3].kurz },
               ].map(({ Icon, t, d }) => (
                 <div key={t} className="border-t border-navy/15 py-8">
                   <Icon className="size-7 stroke-[1.5] text-gold-ink" aria-hidden />
@@ -211,7 +212,7 @@ export default function Home() {
         <div className="relative grid items-center gap-12 lg:grid-cols-12 lg:gap-20">
           <Reveal className="lg:col-span-6">
             <Label on="dark">Social Media</Label>
-            <Heading className="mt-6" on="dark" first="Folgen Sie" accent="uns" />
+            <Heading className="mt-6" on="dark" first="Folge" accent="uns" />
             <ul className="mt-10 divide-y divide-white/15 border-y border-white/15">
               {[
                 { name: "Instagram", href: site.social.instagram, Icon: InstagramIcon },
@@ -233,7 +234,7 @@ export default function Home() {
             <div className="rounded-sm border border-gold/60 p-8 sm:p-10">
               <IconBadge on="dark"><MessageCircle aria-hidden /></IconBadge>
               <h3 className="mt-6 text-2xl !text-white">Direkt auf WhatsApp</h3>
-              <p className="mt-3 max-w-sm text-white/80">Fragen zu Gebet, Unterricht oder Neubau? Schreiben Sie uns einfach.</p>
+              <p className="mt-3 max-w-sm text-white/80">Fragen zu Gebet, Unterricht oder Neubau? Schreib uns einfach.</p>
               <p className="mt-6 text-lg font-bold tabular-nums">{site.phone.display}</p>
               <Button href={site.whatsapp} className="mt-6">WhatsApp öffnen</Button>
             </div>

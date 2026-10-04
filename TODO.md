@@ -38,7 +38,7 @@ Im Code sind dieselben Stellen als sichtbares `TODO:` markiert.
 
 ## Phase 3 (Startseite)
 - [ ] **Fotos (Platzhalter mit sichtbarem „TODO: echtes Foto“):** Hero (Querformat, nicht aus dem Gebetsraum-Foto), Neubau-Render (Querformat, volle Auflösung). `aussen-eingang.jpg` wurde nicht geliefert. Gebetsraum-Foto ist eingebaut (Über uns, Gebetszeiten). In `src/app/page.tsx` über `<Photo src=… />` einsetzen. Keine erkennbaren Personen, keine Kinder.
-- [ ] **Karte (Anfahrt):** Platzhalter. Klick-zum-Laden-Karte erst nach Klärung des Datenschutzes. Bis dahin Link zu OpenStreetMap (lädt nichts vorab).
+- [x] **Standort-Karte:** umgesetzt als dekorative Karte ohne Embed (`StandortKarte`), „Route planen“ öffnet Google Maps erst beim Klick in neuem Tab. Datenschutz laut Vorgabe nicht ergänzt, bei der Prüfung mit erwähnen (externer Link zu Google).
 - [ ] **Jumuʻa:** Einstellung in `src/content/settings.ts` (14:00 bis 24.10.2026, ab 25.10.2026 13:00).
 - [ ] **Aktuelles:** `src/content/events.ts` ist leer, die Sektion ist ausgeblendet. Ein Eintrag mit Datum blendet sie ein.
 - [ ] Hero-Headline, Angebots- und Neubau-Texte sind aus den Texten der alten Seite gekürzt/umformuliert (nicht die Rechtstexte). Bitte gegenlesen.
@@ -55,3 +55,12 @@ Im Code sind dieselben Stellen als sichtbares `TODO:` markiert.
 - [ ] Hijri-Tageswechsel um Maghrib (optional) ist nicht gebaut. Wechsel erfolgt nach Kalendertag wie im gedruckten Plan.
 - [ ] Jumuʻa: MAWAQIT meldet 14:00 (`jumuaMawaqit`). Maßgeblich ist `src/content/settings.ts` (13:00 ab 25.10.2026). MAWAQIT selbst muss ab 25.10. auf 13:00 gestellt werden, sonst weicht die App ab.
 - [ ] Gebetszeiten-Seite ist druckbar (Strg+P), Layout für Papier noch nicht an den gedruckten Plan angeglichen.
+
+## Phase 5 (Unterseiten)
+- [ ] **Unterricht:** Uhrzeiten, Kosten, Altersgruppen (Arabisch: nur Kinder oder auch Erwachsene?) und Anmeldeweg fehlen, auf der Seite sichtbar als „TODO: folgt“. Anmeldung läuft bis dahin über WhatsApp mit vorbefülltem Text.
+- [ ] **Spenden:** Verwendungszweck für laufende Kosten festlegen (sichtbares TODO auf `/spenden/`). Block „Was der Betrieb kostet“ fehlt bewusst, bis echte Zahlen vorliegen.
+- [ ] **Neubau:** Render fehlt (Platzhalter), Spendenziel/Stand fehlen (kein Fortschrittsbalken). Text zu Sadaqa Jariya gegenlesen lassen (`src/app/neubau/page.tsx`).
+- [ ] **Kontaktformular:** bewusst nicht gebaut (Hosting, Backend, Datenschutz offen). Platz ist als Kommentar in `src/app/kontakt/page.tsx` vermerkt. Rechts auf `/kontakt/` steht bis dahin die Standort-Karte.
+- [ ] **Impressum/Datenschutz:** Text wörtlich übernommen und maschinell gegen die alte Seite geprüft. Einzige Abweichung: E-Mail-Adresse gegen Spam dargestellt (`kontakt [at] masjid-sunnah.de`, im Browser als Link). Weiter rechtlich prüfen lassen (siehe oben).
+- [ ] **Ansprache „du“:** Auf der ganzen Seite jetzt „du“ (Vorgabe „So findest du uns“). Die Rechtstexte bleiben wörtlich bei „Sie“. Falls „Sie“ gewünscht ist: Texte in `src/app/**` und `src/components/StandortSection.tsx`.
+- [ ] `font-mono` für die Koordinaten in `StandortKarte` ist keine Markenschrift (Systemschrift). Auf Wunsch auf Montserrat umstellen.

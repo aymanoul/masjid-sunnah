@@ -167,3 +167,12 @@ export function Section({
     </section>
   );
 }
+
+/** Sichtbare Markierung für noch fehlende Angaben (wird entfernt, sobald die Angabe vorliegt). */
+export function TodoChip({ children }: { children: ReactNode }) {
+  return (
+    <span className="inline-flex rounded-sm bg-gold/15 px-3 py-1.5 text-xs font-semibold text-gold-ink">
+      TODO: {children}
+    </span>
+  );
+}
