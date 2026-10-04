@@ -1,15 +1,8 @@
 @import "tailwindcss";
 
-/* Ersatzschriften mit den Maßen von Montserrat und Prata (berechnet mit @capsizecss/metrics gegen Arial bzw. Times New Roman).
+/* Ersatzschriften: Montserrat pro Gewicht in fallbacks.generated.css (gemessen), Prata hier (nur Zitate).
+   Mit den Maßen von Montserrat und Prata (berechnet mit @capsizecss/metrics gegen Arial bzw. Times New Roman).
    Der Wechsel zur echten Schrift verschiebt dadurch keine Zeilenumbrüche und kein Layout (CLS). */
-@font-face {
-  font-family: "Montserrat Fallback";
-  src: local("Arial"), local("Helvetica"), local("Liberation Sans");
-  size-adjust: 112.8%;
-  ascent-override: 85.8%;
-  descent-override: 22.2%;
-  line-gap-override: 0%;
-}
 @font-face {
   font-family: "Prata Fallback";
   src: local("Times New Roman"), local("Liberation Serif");

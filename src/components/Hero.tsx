@@ -43,7 +43,7 @@ export function Hero() {
           <source type="image/webp" srcSet={srcSet("webp")} sizes={SIZES} />
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={asset(`/images/hero-${images.widths[Math.min(1, images.widths.length - 1)]}.webp`)}
+            src={asset(`/images/hero-${images.widths[Math.min(2, images.widths.length - 1)]}.webp`)}
             alt={hero.alt}
             width={images.width}
             height={images.height}

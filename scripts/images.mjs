@@ -10,7 +10,7 @@ import { dirname, resolve } from "node:path";
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const SRC = resolve(root, "quellen/fotos/hero.jpg");
 const OUT = resolve(root, "public/images");
-const WANTED = [640, 1080, 1600, 2400];
+const WANTED = [640, 800, 1080, 1600, 2400]; // 800 passt zu typischen Handys (412 px × DPR 1,75), damit nicht gleich die 1080er-Datei geladen wird
 
 if (!existsSync(SRC)) { console.warn("WARNUNG: quellen/fotos/hero.jpg fehlt, Hero-Bilder werden nicht erzeugt."); process.exit(0); }
 const meta = await sharp(SRC).rotate().metadata();

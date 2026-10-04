@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import Link from "next/link";
 import { ArrowRight, BookOpen, Clock, GraduationCap, HandHeart, Landmark, MessageCircle, Users, DoorOpen, Building2, School } from "lucide-react";
 import { Arches, Button, Card, Heading, IconBadge, Label, Section } from "@/components/ui";
@@ -17,10 +18,7 @@ import { events } from "@/content/events";
 import { bereiche, hadith } from "@/content/neubau";
 import { site } from "@/content/site";
 
-export const metadata: Metadata = {
-  title: { absolute: "Masjid As-Sunnah Ratingen" },
-  description: "Gebet, Wissen und Gemeinschaft in Ratingen: Gebetszeiten, Arabisch- und Qur’an-Unterricht und das Projekt Neubau.",
-};
+export const metadata: Metadata = pageMeta({ path: "/", title: "Masjid As-Sunnah Ratingen", description: "Gebet, Wissen und Gemeinschaft in Ratingen: Gebetszeiten, Arabisch- und Qur’an-Unterricht und das Projekt Neubau.", absoluteTitle: true });
 
 const MAWAQIT = "https://mawaqit.net/de/msjd-lsn-ratingen-40878-germany";
 

@@ -37,7 +37,7 @@ Im Code sind dieselben Stellen als sichtbares `TODO:` markiert.
 - [ ] Mobile-Menü und Header sind nur mit Platzhalterseiten getestet. Zielseiten (`/gebetszeiten/`, `/unterricht/`, `/neubau/`, `/kontakt/`, `/spenden/`, `/impressum/`, `/datenschutz/`) entstehen in den Phasen 3–5. Bis dahin 404.
 
 ## Phase 3 (Startseite)
-- [ ] **Fotos (Platzhalter mit sichtbarem „TODO: echtes Foto“):** Hero (Querformat, nicht aus dem Gebetsraum-Foto), Neubau-Render (Querformat, volle Auflösung). `aussen-eingang.jpg` wurde nicht geliefert. Gebetsraum-Foto ist eingebaut (Über uns, Gebetszeiten). In `src/app/page.tsx` über `<Photo src=… />` einsetzen. Keine erkennbaren Personen, keine Kinder.
+- [ ] **Fotos (Platzhalter mit sichtbarem „TODO: echtes Foto“):** Neubau-Render (Querformat, volle Auflösung). Der Hero hat jetzt ein echtes Foto (siehe Phase 6). `aussen-eingang.jpg` wurde nicht geliefert. Gebetsraum-Foto ist eingebaut (Über uns, Gebetszeiten). In `src/app/page.tsx` über `<Photo src=… />` einsetzen. Keine erkennbaren Personen, keine Kinder.
 - [x] **Standort-Karte:** umgesetzt als dekorative Karte ohne Embed (`StandortKarte`), „Route planen“ öffnet Google Maps erst beim Klick in neuem Tab. Datenschutz laut Vorgabe nicht ergänzt, bei der Prüfung mit erwähnen (externer Link zu Google).
 - [ ] **Jumuʻa:** Einstellung in `src/content/settings.ts` (14:00 bis 24.10.2026, ab 25.10.2026 13:00).
 - [ ] **Aktuelles:** `src/content/events.ts` ist leer, die Sektion ist ausgeblendet. Ein Eintrag mit Datum blendet sie ein.
@@ -64,3 +64,14 @@ Im Code sind dieselben Stellen als sichtbares `TODO:` markiert.
 - [ ] **Impressum/Datenschutz:** Text wörtlich übernommen und maschinell gegen die alte Seite geprüft. Einzige Abweichung: E-Mail-Adresse gegen Spam dargestellt (`kontakt [at] masjid-sunnah.de`, im Browser als Link). Weiter rechtlich prüfen lassen (siehe oben).
 - [ ] **Ansprache „du“:** Auf der ganzen Seite jetzt „du“ (Vorgabe „So findest du uns“). Die Rechtstexte bleiben wörtlich bei „Sie“. Falls „Sie“ gewünscht ist: Texte in `src/app/**` und `src/components/StandortSection.tsx`.
 - [ ] `font-mono` für die Koordinaten in `StandortKarte` ist keine Markenschrift (Systemschrift). Auf Wunsch auf Montserrat umstellen.
+
+## Phase 6 (Feinschliff)
+- [ ] **Hero-Foto:** Das gelieferte Foto ist ein Hochformat (1450 × 2576 px). Auf Desktop wird daraus ein schmaler Ausschnitt, die Überschrift liegt links über dem Rand der Gebetsnische. Ein Querformat-Foto (mindestens 2400 px breit) wäre besser. Dann nur `quellen/fotos/hero.jpg` ersetzen (`npm run build` erzeugt alle Größen, 1600/2400 px entstehen automatisch, sobald das Original breit genug ist). Fokuspunkt und Bildhöhe: `src/content/hero.ts`.
+- [ ] `aussen-eingang.jpg` wurde nicht geliefert.
+- [ ] **Indexierung:** Liste in `src/content/seo.ts`. Auf `false` stehen `/` (Foto-Platzhalter Neubau-Render), `/unterricht/`, `/neubau/`, `/spenden/` (TODO-Platzhalter) und `/styleguide/`. Vor dem Livegang auf `true` setzen, sobald die Platzhalter weg sind. `npm run check` meldet Widersprüche (TODO-Text auf indexierbarer Seite).
+- [ ] **Vorschau-Schalter entfernen (Livegang):** In `.github/workflows/pages.yml` `NEXT_PUBLIC_NOINDEX`, `NEXT_PUBLIC_BASE_PATH` und `NEXT_PUBLIC_SITE_URL` entfernen bzw. auf die Hauptdomain setzen. Sonst sperrt `robots.txt` alles.
+- [ ] `/styleguide/` vor dem Livegang entfernen.
+- [ ] **Schema.org:** enthält nur Fakten (Name, Adresse, Telefon, E-Mail, Social-Links, Koordinaten, Träger). Die E-Mail steht dort im Klartext im HTML (Vorgabe), die sichtbare Darstellung bleibt gegen Spam geschützt. Social-URLs vor Livegang prüfen.
+- [ ] **Google Maps:** „Route planen“ öffnet erst beim Klick. Datenschutzerklärung nennt das nicht (bewusst nicht geändert, rechtlich prüfen lassen).
+- [ ] **Lighthouse mobil** (simuliert, 4× Drosselung): 95–98 auf den meisten Seiten, einzelne Läufe 88–91 durch Streuung der Simulation. LCP 2,1–3,3 s schwankt, im ungedrosselten Browser liegt das Hero-Bild nach rund 0,2 s. Ursachen: Next/React-Grundlast (157 KB Skripte), Schriften (ca. 70 KB), Hero-Bild (27 KB bei 800 px).
+- [ ] Schriften: Teilmengen mit `python3 scripts/subset-fonts.py` neu erzeugen, wenn neue Sonderzeichen oder arabischer Text dazukommen. Ersatzschriften mit `node scripts/font-fallbacks.mjs` (braucht Playwright).

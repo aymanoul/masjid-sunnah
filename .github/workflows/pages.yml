@@ -21,6 +21,7 @@ jobs:
     env:
       NEXT_PUBLIC_BASE_PATH: /masjid-sunnah # Vorschau im Unterpfad; auf der Hauptdomain entfernen
       NEXT_PUBLIC_NOINDEX: "1" # Vorschau nicht von Suchmaschinen indexieren; vor Livegang entfernen
+      NEXT_PUBLIC_SITE_URL: https://aymanoul.github.io # Ursprung für Open Graph, Sitemap; auf der Hauptdomain entfernen
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -28,6 +29,7 @@ jobs:
       - run: npm ci
       - run: npm test
       - run: npm run build # prebuild lädt MAWAQIT; bei Fehler Warnung und Fallback-Datei, Build bricht nicht ab
+      - run: npm run check # Links, externe Ressourcen, noindex/Sitemap, Metadaten
       - uses: actions/upload-pages-artifact@v3
         with: { path: out }
   deploy:

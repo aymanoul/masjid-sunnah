@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "@fontsource-variable/montserrat/wght.css";
 import "@fontsource/prata/400.css";
 import "@fontsource/amiri/400.css";
+import "./fallbacks.generated.css"; // Ersatzschrift pro Gewicht (gemessen), verhindert Layoutsprung beim Schriftwechsel
 import "./fonts.generated.css"; // kleine Teilmengen, nach den Fontsource-Dateien, damit sie Vorrang haben
 import "./globals.css";
 import { Header } from "@/components/Header";
