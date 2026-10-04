@@ -59,22 +59,19 @@ export function Hero() {
       </div>
 
       <div className="mx-auto w-full max-w-6xl px-5 pb-12 pt-36 sm:px-8 sm:pb-20">
-        <p className="hero-in mb-5 h-10 text-xl leading-10 text-white sm:h-11 sm:text-2xl sm:leading-[2.75rem]" style={delay(0)}>
-          <span lang="ar" dir="rtl">بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ</span>
-        </p>
         <h1
           className="hero-in max-w-3xl text-[clamp(2.75rem,1rem+6.5vw,4.75rem)] font-black leading-[0.98] tracking-tight text-white"
-          style={delay(60)}
+          style={delay(0)}
         >
           Ein Ort des Gebets, des Wissens und der Gemeinschaft
         </h1>
         <p
           className="hero-in mt-6 max-w-[34ch] text-[1.0625rem] font-light leading-[1.6] text-white/[0.78] sm:max-w-[60ch] sm:text-xl"
-          style={delay(140)}
+          style={delay(80)}
         >
           Die Masjid As-Sunnah in Ratingen orientiert sich an Qur’an und Sunnah und steht allen Geschwistern offen.
         </p>
-        <div className="hero-in mt-9 flex flex-col gap-3 sm:flex-row sm:gap-4" style={delay(220)}>
+        <div className="hero-in mt-9 flex flex-col gap-3 sm:flex-row sm:gap-4" style={delay(160)}>
           <Button href="/gebetszeiten/" variant="hero" size="lg" className="w-full px-5 text-[0.8125rem] sm:w-auto sm:px-8 sm:text-sm">Gebetszeiten</Button>
           <Button href="/neubau/" variant="hero-outline" size="lg" className="w-full px-5 text-center text-[0.8125rem] sm:w-auto sm:px-8 sm:text-sm">Projekt Neubau unterstützen</Button>
         </div>

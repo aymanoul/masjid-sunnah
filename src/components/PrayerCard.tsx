@@ -53,9 +53,6 @@ export function PrayerCard({ buildDate }: { buildDate: string }) {
         <div className="col-span-2 sm:col-span-1"><dt className="text-xs font-semibold uppercase tracking-[0.18em] text-ink/70">Hijri-Datum</dt><dd className="mt-1 text-lg font-bold">{hijri(date)}</dd></div>
       </dl>
 
-      <p className="border-t border-navy/10 px-6 py-3 text-xs text-ink/70 sm:px-8">
-        Zeiten laut MAWAQIT, Berliner Zeit.
-      </p>
     </div>
   );
 }
