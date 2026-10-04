@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+/* Designsystem Masjid As-Sunnah. Abstände: 4-px-Basis, es werden nur gerade Stufen (2, 4, 6, 8 …) = Vielfache von 8 px verwendet. */
+@theme {
+  --color-navy: #212242;
+  --color-navy-900: #16172e;
+  --color-gold: #ca9e4e;
+  --color-gold-light: #d6b880;
+  --color-gold-deep: #a57b2b; /* große Headlines auf hellem Grund (>= 3:1) */
+  --color-gold-ink: #84601c; /* Fließtext/Labels auf hellem Grund (>= 4.5:1, auch auf Stone) */
+  --color-stone: #edebe6;
+  --color-paper: #f8f9fb;
+  --color-blue: #345ca0;
+  --color-ink: #24284a;
+
+  --font-sans: "Montserrat Variable", "Amiri", ui-sans-serif, system-ui, sans-serif; /* Amiri als Fallback für ʻ und ﷺ */
+  --font-serif: "Prata", Georgia, serif;
+  --font-arabic: "Amiri", "Geeza Pro", serif;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 96px;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-weight: 400;
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    text-rendering: optimizeLegibility;
+  }
+  h1, h2, h3, h4 {
+    font-weight: 800;
+    color: var(--color-navy);
+    text-wrap: balance;
+  }
+  :focus-visible {
+    outline: 3px solid var(--color-blue);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+  .on-dark :focus-visible {
+    outline-color: var(--color-gold-light);
+  }
+  ::selection {
+    background: var(--color-gold);
+    color: var(--color-navy);
+  }
+  [lang="ar"] {
+    font-family: var(--font-arabic);
+    line-height: 1.9;
+  }
+}
+
+/* Dezentes Einblenden. Ohne JS bleibt alles sichtbar. */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.js .reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .js .reveal { opacity: 1; transform: none; transition: none; }
+  * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+/* Druck: nur der Plan, ohne Navigation */
+@media print {
+  header, footer, #mobile-menu, .no-print { display: none !important; }
+  body { background: #fff; }
+  main section > div { padding: 0 !important; max-width: none !important; }
+  table { font-size: 9pt; }
+  tr, th, td { break-inside: avoid; }
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
