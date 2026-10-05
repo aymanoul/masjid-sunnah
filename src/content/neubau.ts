@@ -1,4 +1,4 @@
-// Texte zum Projekt Neubau. Keine Zahlen und kein Fortschritt, bis echte Angaben vorliegen.
+// Texte zum Projekt Neubau: Beschreibung und Hadith.
 export const bereiche = [
   { key: "gebet", titel: "Gebetsräume", kurz: "Helle Gebetsräume für Männer und Frauen, für die täglichen Gebete, Jumuʻa und Festgebete.", text: "Lichtdurchflutete Gebetsräume für Männer und Frauen, großzügig gestaltet für die täglichen Gebete, Jumuʻa und Festgebete." },
   { key: "bildung", titel: "Bildung", kurz: "Klassenräume, Bibliothek und Seminarräume für Qur’an-Unterricht, Bildung und Vorträge.", text: "Moderne Klassenräume, eine Bibliothek und Seminarräume für Qur’an-Unterricht, islamische Bildung und Vorträge." },

@@ -6,9 +6,9 @@
 - Kontaktformular: `method="post" action="#contact"`, Honeypot-Feld `website`, Cloudflare Turnstile. Die Verarbeitung läuft serverseitig auf dem Hoster (vermutlich PHP). Der Code dafür steht nicht in der HTML.
 - Externe Requests ohne Einwilligung: Google Fonts (Cormorant Garamond, Amiri, IM Fell English SC), Cloudflare Turnstile (beim Laden), MAWAQIT-iframe im Hero. Das widerspricht der Datenschutzerklärung („keine externen Analysedienste“) und dem DSGVO-Anspruch. Die neue Seite lädt nichts davon vorab.
 - TikTok: Klick-zum-Laden, 6 feste Video-IDs, zufällige Auswahl.
-- Neubau-Slider referenziert `images/neubau-1.webp` … `neubau-6.webp`. Diese Bilder wurden nicht geliefert (TODO).
+- Neubau-Slider referenziert `images/neubau-1.webp` … `neubau-6.webp`. Diese Bilder wurden nicht geliefert.
 - Vereinsname steht in der Seite als „Marrokanischer Kulturverein“ (Falschschreibung) und als „Marokkanischer Kultur Verein Ratingen e.V.“ (korrekt, Impressum). Neu überall korrekt.
-- Aktuelles: Eid-Gebet am Mittwoch, 27. Mai (vorbei) → Sektion bleibt weg.
+- Aktuelles: Eid-Gebet am Mittwoch, 27. Mai (vorbei). Der Bereich „Aktuelles“ entfällt in der neuen Seite.
 - Stil: dunkelgrün/gold, IM Fell English SC, Emojis als Icons, Glow-Animation, „im Aufbau“-Texte, „Demnächst“-Liste. Das ist der zu vermeidende KI-Look.
 
 ## Rechtstexte

@@ -3,7 +3,7 @@ import { pageMeta } from "@/lib/seo";
 import { BankCard } from "@/components/BankCard";
 import { Watermark } from "@/components/Logo";
 import { Reveal } from "@/components/Reveal";
-import { Button, Heading, Label, Section, TodoChip } from "@/components/ui";
+import { Button, Heading, Label, Section } from "@/components/ui";
 import { site } from "@/content/site";
 
 export const metadata: Metadata = pageMeta({ path: "/spenden/", title: "Spenden", description: "Spenden für den Neubau und die Gemeinde der Masjid As-Sunnah Ratingen: per Überweisung, PayPal oder Dauerauftrag." });
@@ -36,8 +36,6 @@ export default function Spenden() {
             <Label>Einmalig</Label>
             <Heading className="mt-6" as="h2" size="md" first="Per Überweisung oder" accent="PayPal" />
             <div className="mt-8"><BankCard id="bank" /></div>
-            {/* TODO: Verwendungszweck für laufende Kosten festlegen (z. B. „Gemeinde“) und hier nennen. */}
-            <p className="mt-4 text-sm">Für die laufenden Kosten der Gemeinde: <TodoChip>Verwendungszweck festlegen</TodoChip></p>
           </Reveal>
           <Reveal className="lg:col-span-5" delay={120}>
             <div className="rounded-sm bg-stone p-8">

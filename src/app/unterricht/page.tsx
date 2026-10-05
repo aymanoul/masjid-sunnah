@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { pageMeta } from "@/lib/seo";
 import { MessageCircle } from "lucide-react";
-import { Button, Card, Heading, Label, Section, TodoChip } from "@/components/ui";
+import { Button, Heading, Label, Section } from "@/components/ui";
 import { Watermark } from "@/components/Logo";
 import { Reveal } from "@/components/Reveal";
 import { arabischStufen, quran } from "@/content/unterricht";
@@ -85,28 +85,16 @@ export default function Unterricht() {
       </Section>
 
       <Section id="anmeldung" tone="stone">
-        <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
-          <Reveal className="lg:col-span-5">
-            <Label>Anmeldung</Label>
-            <Heading className="mt-6" first="Melde dich" accent="an" />
-            <p className="mt-6">Schreib uns per WhatsApp.</p>
-            <div className="mt-8 flex flex-wrap gap-4">
-              <Button href={wa("Assalamu alaikum, ich möchte mich für den Arabisch-Unterricht anmelden.")} icon={<MessageCircle className="size-4" aria-hidden />}>Arabisch</Button>
-              <Button href={wa("Assalamu alaikum, ich möchte mich für den Qur’an-Unterricht anmelden.")} variant="navy" icon={<MessageCircle className="size-4" aria-hidden />}>Qur’an</Button>
-            </div>
-          </Reveal>
-          <Reveal className="lg:col-span-7" delay={120}>
-            <div className="grid gap-6 sm:grid-cols-3">
-              {/* TODO: Angaben vom Vorstand: Uhrzeiten, Kosten, Altersgruppen (Arabisch: nur Kinder oder auch Erwachsene?), Anmeldeweg */}
-              {["Uhrzeiten", "Kosten", "Altersgruppen"].map((t) => (
-                <Card key={t} tone="paper" className="p-6">
-                  <h3 className="text-lg">{t}</h3>
-                  <p className="mt-3"><TodoChip>folgt</TodoChip></p>
-                </Card>
-              ))}
-            </div>
-          </Reveal>
-        </div>
+        <Reveal className="max-w-2xl">
+          <Label>Anmeldung</Label>
+          <Heading className="mt-6" first="Melde dich" accent="an" />
+          <p className="mt-6">Anmeldung und Fragen laufen über WhatsApp.</p>
+          <div className="mt-8 flex flex-wrap gap-4">
+            <Button href={wa("Assalamu alaikum, ich möchte mich für den Arabisch-Unterricht anmelden.")} icon={<MessageCircle className="size-4" aria-hidden />}>Arabisch anmelden</Button>
+            <Button href={wa("Assalamu alaikum, ich möchte mich für den Qur’an-Unterricht anmelden.")} variant="navy" icon={<MessageCircle className="size-4" aria-hidden />}>Qur’an anmelden</Button>
+            <Button href={site.whatsapp} variant="outline-dark" icon={<MessageCircle className="size-4" aria-hidden />}>Frage stellen</Button>
+          </div>
+        </Reveal>
       </Section>
     </>
   );

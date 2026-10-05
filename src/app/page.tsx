@@ -14,7 +14,6 @@ import { JsonLd } from "@/components/JsonLd";
 import { StandortSection } from "@/components/StandortSection";
 import { InstagramIcon, TiktokIcon, YoutubeIcon } from "@/components/icons";
 import { berlinNow } from "@/lib/prayer";
-import { events } from "@/content/events";
 import { bereiche, hadith } from "@/content/neubau";
 import { site } from "@/content/site";
 
@@ -24,7 +23,6 @@ const MAWAQIT = "https://mawaqit.net/de/msjd-lsn-ratingen-40878-germany";
 
 export default function Home() {
   const buildDate = berlinNow().date;
-  const upcoming = events.filter((e) => e.date >= buildDate);
 
   return (
     <>
@@ -165,29 +163,7 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* 6 · Aktuelles (nur bei kommenden Terminen) */}
-      {upcoming.length > 0 ? (
-        <Section id="aktuelles" tone="stone">
-          <Label>Aktuelles</Label>
-          <Heading className="mt-6" first="Kommende" accent="Termine" />
-          <div className="mt-12 grid gap-6 md:grid-cols-2">
-            {upcoming.map((e) => (
-              <Card key={e.title + e.date} tone="paper">
-                <h3 className="text-2xl">{e.title}</h3>
-                {e.titleAr ? <p lang="ar" dir="rtl" className="mt-1 text-xl text-gold-ink">{e.titleAr}</p> : null}
-                <p className="mt-3 font-semibold">{e.dateLabel}</p>
-                {e.schedule ? (
-                  <ul className="mt-4 space-y-1 text-sm">{e.schedule.map((s) => (<li key={s.label} className="flex justify-between gap-4 border-b border-navy/10 py-1"><span>{s.label}</span><span className="font-bold tabular-nums">{s.time} Uhr</span></li>))}</ul>
-                ) : null}
-                <p className="mt-4 text-sm">{e.place.map((l) => (<span key={l} className="block">{l}</span>))}</p>
-                {e.notes ? <ul className="mt-4 list-disc space-y-1 pl-5 text-sm">{e.notes.map((n) => (<li key={n}>{n}</li>))}</ul> : null}
-              </Card>
-            ))}
-          </div>
-        </Section>
-      ) : null}
-
-      {/* 7 · Social & WhatsApp */}
+      {/* 6 · Social & WhatsApp */}
       <Section id="social" tone="navy">
         <Watermark tone="white" opacity={0.04} className="-right-32 -top-24 w-[36rem]" />
         <div className="relative grid items-center gap-12 lg:grid-cols-12 lg:gap-20">
@@ -223,7 +199,7 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* 8 · Standort (Karte ohne Embed) */}
+      {/* 7 · Standort (Karte ohne Embed) */}
       <StandortSection />
     </>
   );

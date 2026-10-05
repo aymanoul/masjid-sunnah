@@ -4,9 +4,9 @@
 export const pages: Record<string, { indexable: boolean; grund?: string }> = {
   "/": { indexable: false, grund: "Foto-Platzhalter (Hero, Neubau-Render)" },
   "/gebetszeiten/": { indexable: true },
-  "/unterricht/": { indexable: false, grund: "Uhrzeiten, Kosten, Altersgruppen fehlen" },
+  "/unterricht/": { indexable: true },
   "/neubau/": { indexable: false, grund: "Neubau-Render fehlt" },
-  "/spenden/": { indexable: false, grund: "Verwendungszweck für laufende Kosten fehlt" },
+  "/spenden/": { indexable: true },
   "/kontakt/": { indexable: true },
   "/impressum/": { indexable: true },
   "/datenschutz/": { indexable: true },

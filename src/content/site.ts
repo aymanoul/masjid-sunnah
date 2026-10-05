@@ -12,9 +12,9 @@ export const site = {
   whatsapp: "https://wa.me/491636831832",
   email: { user: "kontakt", domain: "masjid-sunnah.de" },
   social: {
-    instagram: "https://www.instagram.com/sunnahmoschee", // TODO: URL gegen echten Kanal prüfen
-    tiktok: "https://www.tiktok.com/@sunnahmoschee", // TODO: URL gegen echten Kanal prüfen
-    youtube: "https://www.youtube.com/@sunnahmoschee", // TODO: URL gegen echten Kanal prüfen
+    instagram: "https://www.instagram.com/sunnahmoschee",
+    tiktok: "https://www.tiktok.com/@sunnahmoschee",
+    youtube: "https://www.youtube.com/@sunnahmoschee",
   },
   donate: {
     holder: "Marokkanischer Kultur Verein Ratingen e.V.",

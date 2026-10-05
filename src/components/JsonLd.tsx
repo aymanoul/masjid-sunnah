@@ -3,8 +3,7 @@ import { site } from "@/content/site";
 
 /**
  * Schema.org „Mosque“: nur verbindliche Fakten (Name, Adresse, Telefon, E-Mail, Social-Profile, Koordinaten, Träger).
- * Keine Öffnungszeiten, Bewertungen, Kursdaten oder Gründungsjahr.
- * TODO: Social-URLs vor dem Livegang prüfen (siehe src/content/site.ts).
+ * Keine Öffnungszeiten, Bewertungen oder Kursdaten.
  */
 export function JsonLd() {
   const data = {
