@@ -5,7 +5,8 @@ import { ArrowRight, BookOpen, Clock, GraduationCap, HandHeart, Landmark, Messag
 import { Arches, Button, Card, Heading, IconBadge, Label, Section } from "@/components/ui";
 import { Watermark } from "@/components/Logo";
 import { Photo } from "@/components/Photo";
-import { photos } from "@/content/photos";
+import { einblicke } from "@/content/photos";
+import { Galerie } from "@/components/Galerie";
 import { Hero } from "@/components/Hero";
 import { PrayerCard } from "@/components/PrayerCard";
 import { JumuaTime } from "@/components/JumuaTime";
@@ -53,7 +54,7 @@ export default function Home() {
       <Section id="ueber-uns" tone="paper">
         <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-20">
           <Reveal className="lg:col-span-6">
-            <div className="aspect-[4/3] w-full overflow-hidden"><Photo {...photos.gebetsraum} sizes="(min-width: 1024px) 560px, 100vw" todo="Gebetsraum" /></div>
+            <Galerie bilder={einblicke} label="Einblicke in die Moschee" sizes="(min-width: 1024px) 560px, 100vw" />
           </Reveal>
           <Reveal className="lg:col-span-6" delay={120}>
             <Label>Über uns</Label>
