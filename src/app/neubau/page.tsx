@@ -61,7 +61,7 @@ export default function Neubau() {
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
           <Reveal className="lg:col-span-6">
             <Label>Hadith</Label>
-            <blockquote className="mt-8 border-l-2 border-gold pl-6 font-serif text-3xl leading-snug text-navy">
+            <blockquote className="mt-8 border-l-2 border-gold pl-6 font-sans font-medium text-3xl leading-snug text-navy">
               „{hadith.text}“
               <footer className="mt-4 font-sans text-sm text-ink/80">{hadith.quelle}</footer>
             </blockquote>

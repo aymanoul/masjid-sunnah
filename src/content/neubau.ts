@@ -8,5 +8,5 @@ export const bereiche = [
 
 export const hadith = {
   text: "Wer für Allah eine Moschee baut, dem baut Allah ein Haus im Paradies.",
-  quelle: "Prophet Mohammed ﷺ · Sahih Muslim",
+  quelle: "Der Gesandte Allahs ﷺ · Sahih Muslim",
 };

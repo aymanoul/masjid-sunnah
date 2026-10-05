@@ -111,9 +111,9 @@ export default function Styleguide() {
             </div>
             <div className="space-y-6">
               <p className="text-xs text-ink/70">Prata · nur Akzente, z. B. Zitate</p>
-              <blockquote className="border-l-2 border-gold pl-6 font-serif text-2xl leading-snug text-navy">
+              <blockquote className="border-l-2 border-gold pl-6 font-sans font-medium text-2xl leading-snug text-navy">
                 „Wer für Allah eine Moschee baut, dem baut Allah ein Haus im Paradies.“
-                <footer className="mt-3 font-sans text-sm text-ink/80">Prophet Mohammed ﷺ · Sahih Muslim</footer>
+                <footer className="mt-3 font-sans text-sm text-ink/80">Der Gesandte Allahs ﷺ · Sahih Muslim</footer>
               </blockquote>
               <p className="text-xs text-ink/70">Amiri · Arabisch, <code>lang=&quot;ar&quot; dir=&quot;rtl&quot;</code></p>
               <p lang="ar" dir="rtl" className="text-3xl text-navy">بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ</p>

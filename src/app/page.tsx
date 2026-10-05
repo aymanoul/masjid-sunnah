@@ -135,7 +135,7 @@ export default function Home() {
             <p className="mt-8 max-w-lg">
               Wir planen den Neubau einer Moschee in Ratingen: ein Gemeindezentrum mit Räumen für Gebet, Bildung, Verwaltung und Gemeinschaft.
             </p>
-            <blockquote className="mt-10 border-l-2 border-gold pl-6 font-serif text-2xl leading-snug text-navy">
+            <blockquote className="mt-10 border-l-2 border-gold pl-6 font-sans font-medium text-2xl leading-snug text-navy">
               „{hadith.text}“
               <footer className="mt-3 font-sans text-sm text-ink/80">{hadith.quelle}</footer>
             </blockquote>
