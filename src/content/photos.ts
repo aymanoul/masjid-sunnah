@@ -48,7 +48,15 @@ export const photos = {
     height: 901,
     alt: "Unterrichtsraum der Masjid As-Sunnah Ratingen mit Tischen, Whiteboard und Leinwand",
   },
+  unterrichtsraum2: {
+    src: asset("/images/unterrichtsraum-2-1600.webp"),
+    srcSet: [800, 1600].map((w) => `${asset(`/images/unterrichtsraum-2-${w}.webp`)} ${w}w`).join(", "),
+    jpg: asset("/images/unterrichtsraum-2.jpg"),
+    width: 1600,
+    height: 901,
+    alt: "Ein weiterer Unterrichtsraum mit Tischen, hochgestellten Stühlen, gefliesten Wänden und einem Whiteboard mit arabischen Buchstaben",
+  },
 } as const;
 
 /** Reihenfolge der Bildergalerie „Einblicke in die Moschee“. */
-export const einblicke = [photos.gebetsraum, photos.gebetsnische, photos.saeulen, photos.minbar, photos.quranRegal, photos.unterrichtsraum];
+export const einblicke = [photos.gebetsraum, photos.gebetsnische, photos.saeulen, photos.minbar, photos.quranRegal, photos.unterrichtsraum, photos.unterrichtsraum2];
