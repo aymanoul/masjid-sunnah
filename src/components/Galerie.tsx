@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-type Bild = { src: string; srcSet: string; width: number; height: number; alt: string };
+type Bild = { src: string; srcSet: string; width: number; height: number; alt: string; jpg?: string };
 
 /**
  * Bildergalerie zum Wischen. Native Scroll-Snap (funktioniert auch ohne JavaScript),
@@ -44,8 +44,16 @@ export function Galerie({ bilder, label, sizes }: { bilder: readonly Bild[]; lab
         >
           {bilder.map((b, i) => (
             <figure key={b.src} role="group" aria-roledescription="Bild" aria-label={`${i + 1} von ${bilder.length}`} className="aspect-[4/3] w-full shrink-0 snap-center snap-always overflow-hidden">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={b.src} srcSet={b.srcSet} sizes={sizes} width={b.width} height={b.height} alt={b.alt} loading="lazy" decoding="async" className="h-full w-full object-cover" />
+              {b.jpg ? (
+                <picture className="block h-full w-full">
+                  <source type="image/webp" srcSet={b.srcSet} sizes={sizes} />
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={b.jpg} width={b.width} height={b.height} alt={b.alt} loading="lazy" decoding="async" className="h-full w-full object-cover" />
+                </picture>
+              ) : (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img src={b.src} srcSet={b.srcSet} sizes={sizes} width={b.width} height={b.height} alt={b.alt} loading="lazy" decoding="async" className="h-full w-full object-cover" />
+              )}
             </figure>
           ))}
         </div>

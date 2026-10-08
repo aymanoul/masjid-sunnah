@@ -7,6 +7,7 @@ import { Watermark } from "./Logo";
 export function Photo({
   src,
   srcSet,
+  jpg,
   sizes,
   width,
   height,
@@ -19,6 +20,7 @@ export function Photo({
 }: {
   src?: string;
   srcSet?: string;
+  jpg?: string; // JPG-Rückfall: dann <picture className="block h-full w-full"> mit srcSet als WebP-Quelle
   sizes?: string;
   width?: number;
   height?: number;
@@ -29,6 +31,15 @@ export function Photo({
   chipText?: string;
   plain?: boolean; // Platzhalter ohne Kalligrafie (z. B. unter einem dunklen Overlay)
 }) {
+  if (src && jpg) {
+    return (
+      <picture className="block h-full w-full">
+        <source type="image/webp" srcSet={srcSet} sizes={sizes} />
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={jpg} width={width} height={height} alt={alt} className={`h-full w-full object-cover ${className}`} loading="lazy" decoding="async" />
+      </picture>
+    );
+  }
   if (src) {
     // eslint-disable-next-line @next/next/no-img-element
     return <img src={src} srcSet={srcSet} sizes={sizes} width={width} height={height} alt={alt} className={`h-full w-full object-cover ${className}`} loading="lazy" decoding="async" />;

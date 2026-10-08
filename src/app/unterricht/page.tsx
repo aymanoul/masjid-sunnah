@@ -4,6 +4,8 @@ import { MessageCircle } from "lucide-react";
 import { Button, Heading, Label, Section } from "@/components/ui";
 import { Watermark } from "@/components/Logo";
 import { Reveal } from "@/components/Reveal";
+import { Photo } from "@/components/Photo";
+import { photos } from "@/content/photos";
 import { arabischStufen, quran } from "@/content/unterricht";
 import { site } from "@/content/site";
 
@@ -16,7 +18,8 @@ export default function Unterricht() {
     <>
       <Section tone="navy" className="pt-20">
         <Watermark tone="white" opacity={0.05} className="-right-24 -top-10 w-[34rem]" />
-        <div className="relative max-w-3xl">
+        <div className="relative grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
+        <div className="lg:col-span-7">
           <Label on="dark">Unterricht</Label>
           <Heading as="h1" size="xl" on="dark" className="mt-6" first="Arabisch und" accent="Qur’an" after="lernen" />
           <p className="mt-8 max-w-xl text-lg text-white/85">
@@ -26,6 +29,10 @@ export default function Unterricht() {
             <Button href="#arabisch" variant="gold">Arabisch</Button>
             <Button href="#quran" variant="outline-light">Qur’an</Button>
           </div>
+        </div>
+        <div className="lg:col-span-5">
+          <div className="aspect-[4/3] w-full overflow-hidden"><Photo {...photos.unterrichtsraum} sizes="(min-width: 1024px) 440px, 100vw" todo="Unterrichtsraum" /></div>
+        </div>
         </div>
       </Section>
 
