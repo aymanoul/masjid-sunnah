@@ -31,7 +31,7 @@ export default function Unterricht() {
           </div>
         </div>
         <div className="lg:col-span-5">
-          <div className="aspect-[4/3] w-full overflow-hidden"><Photo {...photos.unterrichtsraum} sizes="(min-width: 1024px) 440px, 100vw" todo="Unterrichtsraum" /></div>
+          <div className="aspect-[4/3] w-full overflow-hidden rounded-2xl"><Photo {...photos.unterrichtsraum} sizes="(min-width: 1024px) 440px, 100vw" todo="Unterrichtsraum" /></div>
         </div>
         </div>
       </Section>

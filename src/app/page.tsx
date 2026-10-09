@@ -127,7 +127,7 @@ export default function Home() {
       {/* 5 · Projekt Neubau (Teaser) */}
       <Section id="neubau-projekt" tone="white">
         <Reveal>
-          <div className="aspect-[16/8] w-full min-h-56"><Photo todo="Neubau-Render in voller Auflösung (Querformat)" /></div>
+          <div className="aspect-[16/8] w-full min-h-56 overflow-hidden rounded-2xl"><Photo todo="Neubau-Render in voller Auflösung (Querformat)" /></div>
         </Reveal>
         <div className="mt-14 grid gap-14 lg:grid-cols-12 lg:gap-20">
           <Reveal className="lg:col-span-6">

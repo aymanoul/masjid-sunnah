@@ -32,7 +32,7 @@ export default function Neubau() {
 
       <Section tone="paper" className="!pb-0">
         <Reveal>
-          <div className="aspect-[16/8] min-h-56 w-full"><Photo todo="Neubau-Render in voller Auflösung (Querformat)" /></div>
+          <div className="aspect-[16/8] min-h-56 w-full overflow-hidden rounded-2xl"><Photo todo="Neubau-Render in voller Auflösung (Querformat)" /></div>
         </Reveal>
       </Section>
 

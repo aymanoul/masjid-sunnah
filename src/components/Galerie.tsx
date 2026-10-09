@@ -40,7 +40,7 @@ export function Galerie({ bilder, label, sizes }: { bilder: readonly Bild[]; lab
             if (e.key === "ArrowRight") { e.preventDefault(); gehe(aktiv + 1); }
             if (e.key === "ArrowLeft") { e.preventDefault(); gehe(aktiv - 1); }
           }}
-          className="flex snap-x snap-mandatory overflow-x-auto overscroll-x-contain [scrollbar-width:none] [&::-webkit-scrollbar]:hidden focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
+          className="flex snap-x snap-mandatory overflow-x-auto rounded-2xl overscroll-x-contain [scrollbar-width:none] [&::-webkit-scrollbar]:hidden focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
         >
           {bilder.map((b, i) => (
             <figure key={b.src} role="group" aria-roledescription="Bild" aria-label={`${i + 1} von ${bilder.length}`} className="aspect-[4/3] w-full shrink-0 snap-center snap-always overflow-hidden">
