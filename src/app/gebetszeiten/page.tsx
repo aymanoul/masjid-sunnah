@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { pageMeta } from "@/lib/seo";
 import { ArrowUpRight } from "lucide-react";
 import { Button, Heading, Label, Section } from "@/components/ui";
-import { Photo } from "@/components/Photo";
+import { FotoHero } from "@/components/FotoHero";
 import { PrayerMonth } from "@/components/PrayerMonth";
 import { photos } from "@/content/photos";
 import { berlinNow } from "@/lib/prayer";
@@ -15,9 +15,9 @@ export default function Gebetszeiten() {
   const buildDate = berlinNow().date;
   return (
     <>
-      <Section tone="navy" className="pt-20 no-print">
-        <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-16">
-          <div className="lg:col-span-7">
+      <div className="no-print">
+        <FotoHero bild={photos.gebetsraum}>
+          <div className="max-w-3xl">
             <Label on="dark">Gebetszeiten</Label>
             <Heading as="h1" size="xl" on="dark" className="mt-6" first="Unser" accent="Gebetsplan" />
             <p className="mt-6 max-w-xl text-white/85">
@@ -29,11 +29,8 @@ export default function Gebetszeiten() {
               </Button>
             </div>
           </div>
-          <div className="lg:col-span-5">
-            <div className="aspect-[4/3] w-full overflow-hidden rounded-2xl"><Photo {...photos.gebetsraum} sizes="(min-width: 1024px) 440px, 100vw" todo="Gebetsraum" /></div>
-          </div>
-        </div>
-      </Section>
+        </FotoHero>
+      </div>
 
       <Section tone="paper">
         <PrayerMonth buildDate={buildDate} />
