@@ -4,7 +4,7 @@ Stand: 5.10.2026. Nur was wirklich noch offen ist.
 
 ## Fotos
 - [ ] **Neubau-Render** (Querformat, volle Auflösung): Startseite und `/neubau/` zeigen bis dahin einen sichtbaren Platzhalter („TODO: echtes Foto“). Einsetzen über `<Photo src=… />` in `src/app/page.tsx` und `src/app/neubau/page.tsx`.
-- [ ] **Hero-Bild:** Das gelieferte Foto ist ein Hochformat (1450 × 2576 px). Auf Desktop wird daraus ein schmaler Ausschnitt. Besser wäre ein Querformat mit mindestens 2400 px Breite. Ersetzen: `quellen/fotos/hero.jpg`, alle Größen entstehen beim Build. Fokuspunkt und Bildhöhe: `src/content/hero.ts`.
+- [ ] **Hero-Bild (optional):** Ab Tablet-Breite (768 px) nutzt der Hero das Querformat-Foto des Gebetsraums (`quellen/fotos/gebetsraum.jpg`), auf dem Handy das Hochformat (`quellen/fotos/hero.jpg`). Ein eigenes, besonders gutes Querformat-Foto mit mindestens 2400 px Breite könnte `gebetsraum.jpg` für den Hero ersetzen. Fokuspunkt und Bildhöhe: `src/content/hero.ts`.
 - [ ] `aussen-eingang.jpg` wurde nicht geliefert.
 - [ ] Keine erkennbaren Personen und keine Kinder auf der Seite, solange das nicht ausdrücklich bestätigt ist.
 

@@ -5,7 +5,8 @@ import { hero } from "@/content/hero";
 import images from "@/content/hero-images.json";
 import { asset } from "@/lib/base";
 
-const srcSet = (ext: "avif" | "webp") => images.widths.map((w) => `${asset(`/images/hero-${w}.${ext}`)} ${w}w`).join(", ");
+const srcSet = (ext: "avif" | "webp", wide = false) => (wide ? images.wide : images).widths.map((w) => `${asset(`/images/hero${wide ? "-wide" : ""}-${w}.${ext}`)} ${w}w`).join(", ");
+const WIDE = "(min-width: 768px)"; // ab Tablet das Querformat, darunter das Hochformat
 const SIZES = "100vw";
 
 // Farbschichten laut Vorgabe. Das Foto selbst bleibt unbearbeitet, alles per CSS.
@@ -15,12 +16,13 @@ const GRADIENT =
 
 export function Hero() {
   // Hero-Bild hat Priorität: früh laden, kein Lazy-Loading.
-  preload(asset(`/images/hero-${images.widths[images.widths.length - 1]}.avif`), {
-    as: "image",
-    imageSrcSet: srcSet("avif"),
-    imageSizes: SIZES,
-    fetchPriority: "high",
-    type: "image/avif",
+  // Hero-Bild hat Priorität: früh laden, kein Lazy-Loading. Je Bildschirm nur die passende Variante.
+  const last = (w: readonly number[]) => w[w.length - 1];
+  preload(asset(`/images/hero-${last(images.widths)}.avif`), {
+    as: "image", imageSrcSet: srcSet("avif"), imageSizes: SIZES, fetchPriority: "high", type: "image/avif", media: `not all and ${WIDE}`,
+  } as Parameters<typeof preload>[1]);
+  preload(asset(`/images/hero-wide-${last(images.wide.widths)}.avif`), {
+    as: "image", imageSrcSet: srcSet("avif", true), imageSizes: SIZES, fetchPriority: "high", type: "image/avif", media: WIDE,
   } as Parameters<typeof preload>[1]);
 
   const vars = {
@@ -39,6 +41,8 @@ export function Hero() {
       {/* Bildfläche: Foto + Blaustich + Verlauf. Läuft unten in #1A2136 aus. */}
       <div className="absolute inset-x-0 top-0 -z-10 h-[var(--hero-h-m)] lg:h-[var(--hero-h-d)]">
         <picture>
+          <source media={WIDE} type="image/avif" srcSet={srcSet("avif", true)} sizes={SIZES} />
+          <source media={WIDE} type="image/webp" srcSet={srcSet("webp", true)} sizes={SIZES} />
           <source type="image/avif" srcSet={srcSet("avif")} sizes={SIZES} />
           <source type="image/webp" srcSet={srcSet("webp")} sizes={SIZES} />
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -51,7 +55,7 @@ export function Hero() {
             loading="eager"
             decoding="async"
             style={{ filter: FILTER }}
-            className="absolute inset-0 h-full w-full object-cover object-[var(--hero-pos-m)] lg:object-[var(--hero-pos-d)]"
+            className="absolute inset-0 h-full w-full object-cover object-[var(--hero-pos-m)] md:object-[var(--hero-pos-d)]"
           />
         </picture>
         <div aria-hidden className="absolute inset-0 bg-hero-ink opacity-35 mix-blend-multiply" />
